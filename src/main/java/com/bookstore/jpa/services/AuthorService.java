@@ -1,6 +1,6 @@
 package com.bookstore.jpa.services;
 
-import com.bookstore.jpa.dtos.BookRecordDto;
+import com.bookstore.jpa.dtos.AuthorRecordDto;
 import com.bookstore.jpa.models.AuthorModel;
 import com.bookstore.jpa.repositories.AuthorRepository;
 import jakarta.transaction.Transactional;
@@ -24,9 +24,9 @@ public class AuthorService {
     public void deleteAuthor(UUID id) { authorRepository.deleteById(id); }
 
     @Transactional
-    public AuthorModel saveAuthor(BookRecordDto bookRecordDto) {
+    public AuthorModel saveAuthor(AuthorRecordDto authorRecordDto) {
         AuthorModel author = new AuthorModel();
-        author.setName(bookRecordDto.title());
+        author.setName(authorRecordDto.name());
 
         return authorRepository.save(author);
     }
